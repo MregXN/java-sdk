@@ -1,0 +1,37 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.dapr</groupId>
+    <artifactId>dapr-sdk-parent</artifactId>
+    <version>1.6.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>dapr-sdk-springboot-http</artifactId>
+  <packaging>jar</packaging>
+  <version>1.6.0-SNAPSHOT</version>
+  <name>dapr-sdk-springboot-http</name>
+  <description>Http Part of SDK extension for Springboot</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.dapr</groupId>
+      <artifactId>dapr-sdk-springboot-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.dapr</groupId>
+      <artifactId>dapr-sdk-http</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.dapr</groupId>
+      <artifactId>dapr-sdk-actors-http</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>
