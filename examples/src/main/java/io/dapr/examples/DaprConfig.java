@@ -14,14 +14,14 @@ limitations under the License.
 package io.dapr.examples;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class DaprConfig {
 
-  private static final DaprClientBuilder BUILDER = new DaprClientBuilder();
+  private static final DaprClientGrpcBuilder BUILDER = new DaprClientGrpcBuilder();
 
   @Bean
   public DaprClient buildDaprClient() {

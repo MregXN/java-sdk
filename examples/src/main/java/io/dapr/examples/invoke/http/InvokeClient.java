@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.invoke.http;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.domain.HttpExtension;
 
 /**
@@ -38,7 +38,7 @@ public class InvokeClient {
    * @param args Messages to be sent as request for the invoke API.
    */
   public static void main(String[] args) throws Exception {
-    try (DaprClient client = (new DaprClientBuilder()).build()) {
+    try (DaprClient client = (new DaprClientGrpcBuilder()).build()) {
       for (String message : args) {
         byte[] response = client.invokeMethod(SERVICE_APP_ID, "say", message, HttpExtension.POST, null,
             byte[].class).block();

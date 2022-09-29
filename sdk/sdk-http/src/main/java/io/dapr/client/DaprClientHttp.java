@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.client;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.common.base.Strings;
+//import com.google.common.base.Strings;
 import io.dapr.client.domain.ConfigurationItem;
 import io.dapr.client.domain.DeleteStateRequest;
 import io.dapr.client.domain.ExecuteStateTransactionRequest;
@@ -102,7 +102,7 @@ public class DaprClientHttp extends AbstractDaprClient {
    * @param client           Dapr's http client.
    * @param objectSerializer Dapr's serializer for transient request/response objects.
    * @param stateSerializer  Dapr's serializer for state objects.
-   * @see DaprClientBuilder
+   * @see DaprClientHttpBuilder
    * @see DefaultObjectSerializer
    */
   DaprClientHttp(DaprHttp client, DaprObjectSerializer objectSerializer, DaprObjectSerializer stateSerializer) {
@@ -116,7 +116,7 @@ public class DaprClientHttp extends AbstractDaprClient {
    * Constructor useful for tests.
    *
    * @param client Dapr's http client.
-   * @see io.dapr.client.DaprClientBuilder
+   * @see io.dapr.client.DaprClientHttpBuilder
    * @see DefaultObjectSerializer
    */
   DaprClientHttp(DaprHttp client) {
@@ -562,7 +562,9 @@ public class DaprClientHttp extends AbstractDaprClient {
       JsonNode node = it.next();
       String key = node.path("key").asText();
       String error = node.path("error").asText();
-      if (!Strings.isNullOrEmpty(error)) {
+
+      //if (!Strings.isNullOrEmpty(error)) {
+      if (!(error == null || error.isEmpty())) {
         result.add(new State<>(key, error));
         continue;
       }
@@ -739,7 +741,9 @@ public class DaprClientHttp extends AbstractDaprClient {
       JsonNode node = it.next();
       String key = node.path("key").asText();
       String error = node.path("error").asText();
-      if (!Strings.isNullOrEmpty(error)) {
+
+      //if (!Strings.isNullOrEmpty(error)) {
+      if (!(error == null || error.isEmpty())) {
         result.add(new QueryStateItem<>(key, null, error));
         continue;
       }

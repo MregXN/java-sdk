@@ -49,7 +49,7 @@ class ActorProxyImpl implements ActorProxy, InvocationHandler {
   /**
    * Client to talk to the Dapr's API.
    */
-  private final ActorClient actorClient;
+  private final AbstractActorClient actorClient;
 
   /**
    * Creates a new instance of {@link ActorProxyImpl}.
@@ -59,7 +59,7 @@ class ActorProxyImpl implements ActorProxy, InvocationHandler {
    * @param serializer Serializer and deserializer for method calls.
    * @param actorClient Dapr client for Actor APIs.
    */
-  ActorProxyImpl(String actorType, ActorId actorId, DaprObjectSerializer serializer, ActorClient actorClient) {
+  ActorProxyImpl(String actorType, ActorId actorId, DaprObjectSerializer serializer, AbstractActorClient actorClient) {
     this.actorType = actorType;
     this.actorId = actorId;
     this.actorClient = actorClient;

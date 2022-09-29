@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Generic Client Adapter to be used regardless of the GRPC or the HTTP Client implementation required.
  */
-interface DaprClient {
+public interface DaprClient {
 
   /**
    * Gets a state from Dapr's Actor.

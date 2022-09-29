@@ -39,7 +39,7 @@ public class ActorRuntimeConfig {
   /**
    * Instantiates a new config for the Actor Runtime.
    */
-  ActorRuntimeConfig() {
+  public ActorRuntimeConfig() {
   }
 
   /**

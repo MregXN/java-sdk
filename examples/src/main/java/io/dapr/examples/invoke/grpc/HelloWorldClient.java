@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.invoke.grpc;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.domain.HttpExtension;
 
 /**
@@ -32,7 +32,7 @@ public class HelloWorldClient {
    * @param args Array of messages to be sent.
    */
   public static void main(String[] args) throws Exception {
-    try (DaprClient client = new DaprClientBuilder().build()) {
+    try (DaprClient client = new DaprClientGrpcBuilder().build()) {
 
       String serviceAppId = "hellogrpc";
       String method = "say";

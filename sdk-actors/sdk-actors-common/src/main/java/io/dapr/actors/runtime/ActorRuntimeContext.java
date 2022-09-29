@@ -14,6 +14,7 @@ limitations under the License.
 package io.dapr.actors.runtime;
 
 import io.dapr.actors.ActorTrace;
+import io.dapr.actors.runtime.AbstractActorRuntime;
 import io.dapr.serializer.DaprObjectSerializer;
 
 /**
@@ -26,7 +27,7 @@ public class ActorRuntimeContext<T extends AbstractActor> {
   /**
    * Runtime.
    */
-  private final ActorRuntime actorRuntime;
+  private final AbstractActorRuntime actorRuntime;
 
   /**
    * Serializer for transient objects.
@@ -68,7 +69,7 @@ public class ActorRuntimeContext<T extends AbstractActor> {
    * @param daprClient           Client to communicate to Dapr.
    * @param stateProvider        State provider for given Actor's type.
    */
-  ActorRuntimeContext(ActorRuntime actorRuntime,
+  ActorRuntimeContext(AbstractActorRuntime actorRuntime,
                       DaprObjectSerializer objectSerializer,
                       ActorFactory<T> actorFactory,
                       ActorTypeInformation<T> actorTypeInformation,
@@ -88,7 +89,7 @@ public class ActorRuntimeContext<T extends AbstractActor> {
    *
    * @return Actor's runtime.
    */
-  ActorRuntime getActorRuntime() {
+  AbstractActorRuntime getActorRuntime() {
     return this.actorRuntime;
   }
 

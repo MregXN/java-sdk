@@ -16,6 +16,7 @@ package io.dapr.examples.pubsub.http;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.dapr.Topic;
 import io.dapr.client.domain.CloudEvent;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

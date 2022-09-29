@@ -15,7 +15,7 @@ package io.dapr.examples.secrets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 
 import java.util.Map;
 
@@ -52,7 +52,7 @@ public class SecretClient {
     }
 
     String secretKey = args[0];
-    try (DaprClient client = (new DaprClientBuilder()).build()) {
+    try (DaprClient client = (new DaprClientGrpcBuilder()).build()) {
       Map<String, String> secret = client.getSecret(SECRET_STORE_NAME, secretKey).block();
       System.out.println(JSON_SERIALIZER.writeValueAsString(secret));
 

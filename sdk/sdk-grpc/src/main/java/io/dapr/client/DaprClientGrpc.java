@@ -94,7 +94,7 @@ public class DaprClientGrpc extends AbstractDaprClient {
    * @param asyncStub        async gRPC stub
    * @param objectSerializer Serializer for transient request/response objects.
    * @param stateSerializer  Serializer for state objects.
-   * @see DaprClientBuilder
+   * @see DaprClientGrpcBuilder
    */
   DaprClientGrpc(
       Closeable closeableChannel,

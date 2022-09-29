@@ -185,10 +185,10 @@ public class QuerySavedState {
           .setFilter(new EqFilter<>("propertyType", "apartment"))
           .setSort(Arrays.asList(new Sorting("id", Sorting.Order.DESC)));
 
-      QueryStateRequest queryStateRequest = new QueryStateRequest(STATE_STORE_NAME)
+        = new (STATE_STORE_NAME)
           .setQuery(query);
 
-      QueryStateResponse<Listing> result = previewClient.queryState(queryStateRequest, Listing.class).block();
+      QueryStateResponse<Listing> result = previewClient.queryState(, Listing.class).block();
 
       System.out.println("Found " + result.getResults().size() + " items.");
       for (QueryStateItem<Listing> item : result.getResults()) {

@@ -13,9 +13,9 @@ limitations under the License.
 
 package io.dapr.examples.pubsub.http;
 
+import io.dapr.client.CloudEvent;
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
-import io.dapr.client.domain.CloudEvent;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.domain.Metadata;
 import io.dapr.client.domain.PublishEventRequest;
 
@@ -53,7 +53,7 @@ public class CloudEventPublisher {
    */
   public static void main(String[] args) throws Exception {
     //Creating the DaprClient: Using the default builder client produces an HTTP Dapr Client
-    try (DaprClient client = new DaprClientBuilder().build()) {
+    try (DaprClient client = new DaprClientGrpcBuilder().build()) {
       for (int i = 0; i < NUM_MESSAGES; i++) {
         CloudEvent<String> cloudEvent = new CloudEvent<>();
         cloudEvent.setId(UUID.randomUUID().toString());

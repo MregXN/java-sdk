@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.state;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.domain.State;
 import io.dapr.client.domain.TransactionalStateOperation;
 import io.dapr.exceptions.DaprException;
@@ -55,7 +55,7 @@ public class StateClient {
    * @param args messages to be sent as state value.
    */
   public static void main(String[] args) throws Exception {
-    try (DaprClient client = new DaprClientBuilder().build()) {
+    try (DaprClient client = new DaprClientGrpcBuilder().build()) {
       System.out.println("Waiting for Dapr sidecar ...");
       client.waitForSidecar(10000).block();
       System.out.println("Dapr sidecar is ready.");

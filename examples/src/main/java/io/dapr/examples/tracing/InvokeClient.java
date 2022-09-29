@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.tracing;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.domain.HttpExtension;
 import io.dapr.client.domain.InvokeMethodRequest;
 import io.dapr.examples.OpenTelemetryConfig;
@@ -52,7 +52,7 @@ public class InvokeClient {
     final Tracer tracer = openTelemetry.getTracer(InvokeClient.class.getCanonicalName());
 
     Span span = tracer.spanBuilder("Example's Main").setSpanKind(Span.Kind.CLIENT).startSpan();
-    try (DaprClient client = (new DaprClientBuilder()).build()) {
+    try (DaprClient client = (new DaprClientGrpcBuilder()).build()) {
       for (String message : args) {
         try (Scope scope = span.makeCurrent()) {
           InvokeMethodRequest request = new InvokeMethodRequest(SERVICE_APP_ID, "proxy_echo")

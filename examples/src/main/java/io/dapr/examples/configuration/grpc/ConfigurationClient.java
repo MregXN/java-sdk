@@ -13,7 +13,7 @@ limitations under the License.
 
 package io.dapr.examples.configuration.grpc;
 
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.DaprPreviewClient;
 import io.dapr.client.domain.ConfigurationItem;
 import io.dapr.client.domain.GetConfigurationRequest;
@@ -40,7 +40,7 @@ public class ConfigurationClient {
    * @throws Exception throws Exception
    */
   public static void main(String[] args) throws Exception {
-    try (DaprPreviewClient client = (new DaprClientBuilder()).buildPreviewClient()) {
+    try (DaprPreviewClient client = (new DaprClientGrpcBuilder()).buildPreviewClient()) {
       System.out.println("Using preview client...");
       getConfigurationForaSingleKey(client);
       getConfigurationsUsingVarargs(client);

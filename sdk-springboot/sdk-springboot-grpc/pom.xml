@@ -24,12 +24,12 @@
     </dependency>
     <dependency>
       <groupId>io.dapr</groupId>
-      <artifactId>dapr-sdk-gprc</artifactId>
+      <artifactId>dapr-sdk-grpc</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>io.dapr</groupId>
-      <artifactId>dapr-sdk-actors-gprc</artifactId>
+      <artifactId>dapr-sdk-actors-grpc</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

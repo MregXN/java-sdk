@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.pubsub.http;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.domain.Metadata;
 
 import static java.util.Collections.singletonMap;
@@ -48,7 +48,7 @@ public class Publisher {
    * @throws Exception A startup Exception.
    */
   public static void main(String[] args) throws Exception {
-    try (DaprClient client = new DaprClientBuilder().build()) {
+    try (DaprClient client = new DaprClientGrpcBuilder().build()) {
       for (int i = 0; i < NUM_MESSAGES; i++) {
         String message = String.format("This is message #%d", i);
         //Publishing messages

@@ -27,7 +27,7 @@ import java.util.function.Function;
 /**
  * Manages actors of a specific type.
  */
-class ActorManager<T extends AbstractActor> {
+public class ActorManager<T extends AbstractActor> {
 
   /**
    * Serializer for internal Dapr objects.

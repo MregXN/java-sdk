@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.exception;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.exceptions.DaprException;
 
 /**
@@ -32,7 +32,7 @@ public class Client {
    * @param args messages to be sent as state value.
    */
   public static void main(String[] args) throws Exception {
-    try (DaprClient client = new DaprClientBuilder().build()) {
+    try (DaprClient client = new DaprClientGrpcBuilder().build()) {
 
       try {
         client.getState("Unknown state store", "myKey", String.class).block();

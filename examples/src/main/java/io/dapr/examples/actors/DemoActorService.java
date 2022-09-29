@@ -49,16 +49,16 @@ public class DemoActorService {
     final int port = Integer.parseInt(cmd.getOptionValue("port"));
 
     // Idle timeout until actor instance is deactivated.
-    ActorRuntime.getInstance().getConfig().setActorIdleTimeout(Duration.ofSeconds(30));
+    ActorRuntimeGrpc.getInstance().getConfig().setActorIdleTimeout(Duration.ofSeconds(30));
     // How often actor instances are scanned for deactivation and balance.
-    ActorRuntime.getInstance().getConfig().setActorScanInterval(Duration.ofSeconds(10));
+    ActorRuntimeGrpc.getInstance().getConfig().setActorScanInterval(Duration.ofSeconds(10));
     // How long to wait until for draining an ongoing API call for an actor instance.
-    ActorRuntime.getInstance().getConfig().setDrainOngoingCallTimeout(Duration.ofSeconds(10));
+    ActorRuntimeGrpc.getInstance().getConfig().setDrainOngoingCallTimeout(Duration.ofSeconds(10));
     // Determines whether to drain API calls for actors instances being balanced.
-    ActorRuntime.getInstance().getConfig().setDrainBalancedActors(true);
+    ActorRuntimeGrpc.getInstance().getConfig().setDrainBalancedActors(true);
 
     // Register the Actor class.
-    ActorRuntime.getInstance().registerActor(DemoActorImpl.class);
+    ActorRuntimeGrpc.getInstance().registerActor(DemoActorImpl.class);
 
     // Start Dapr's callback endpoint.
     DaprApplication.start(port);

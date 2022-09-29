@@ -43,7 +43,7 @@ public class ActorProxyBuilder<T> {
   /**
    * Client for communication with Dapr's Actor APIs.
    */
-  private final ActorClient actorClient;
+  private final AbstractActorClient actorClient;
 
   /**
    * Instantiates a new builder for a given Actor type, using {@link DefaultObjectSerializer} by default.
@@ -53,7 +53,7 @@ public class ActorProxyBuilder<T> {
    * @param actorTypeClass Actor's type class.
    * @param actorClient    Dapr's sidecar client for Actor APIs.
    */
-  public ActorProxyBuilder(Class<T> actorTypeClass, ActorClient actorClient) {
+  public ActorProxyBuilder(Class<T> actorTypeClass, AbstractActorClient actorClient) {
     this(ActorUtils.findActorTypeName(actorTypeClass), actorTypeClass, actorClient);
   }
 
@@ -66,7 +66,7 @@ public class ActorProxyBuilder<T> {
    * @param actorTypeClass Actor's type class.
    * @param actorClient    Dapr's sidecar client for Actor APIs.
    */
-  public ActorProxyBuilder(String actorType, Class<T> actorTypeClass, ActorClient actorClient) {
+  public ActorProxyBuilder(String actorType, Class<T> actorTypeClass, AbstractActorClient actorClient) {
     if ((actorType == null) || actorType.isEmpty()) {
       throw new IllegalArgumentException("ActorType is required.");
     }

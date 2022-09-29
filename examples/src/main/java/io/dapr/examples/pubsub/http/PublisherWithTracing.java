@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.pubsub.http;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.examples.OpenTelemetryConfig;
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.trace.Span;
@@ -55,7 +55,7 @@ public class PublisherWithTracing {
     Tracer tracer = openTelemetry.getTracer(PublisherWithTracing.class.getCanonicalName());
     Span span = tracer.spanBuilder("Publisher's Main").setSpanKind(Span.Kind.CLIENT).startSpan();
 
-    try (DaprClient client = new DaprClientBuilder().build()) {
+    try (DaprClient client = new DaprClientGrpcBuilder().build()) {
       try (Scope scope = span.makeCurrent()) {
         for (int i = 0; i < NUM_MESSAGES; i++) {
           String message = String.format("This is message #%d", i);

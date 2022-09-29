@@ -14,7 +14,7 @@ limitations under the License.
 package io.dapr.examples.querystate;
 
 import io.dapr.client.DaprClient;
-import io.dapr.client.DaprClientBuilder;
+import io.dapr.client.DaprClientGrpcBuilder;
 import io.dapr.client.DaprPreviewClient;
 import io.dapr.client.domain.QueryStateItem;
 import io.dapr.client.domain.QueryStateRequest;
@@ -47,7 +47,7 @@ public class QuerySavedState {
    * @param args messages to be sent as state value.
    */
   public static void main(String[] args) throws Exception {
-    DaprClientBuilder builder = new DaprClientBuilder();
+    DaprClientGrpcBuilder builder = new DaprClientGrpcBuilder();
     try (DaprClient client = builder.build(); DaprPreviewClient previewClient = builder.buildPreviewClient()) {
       System.out.println("Waiting for Dapr sidecar ...");
       client.waitForSidecar(10000).block();
