@@ -139,6 +139,16 @@ public class DaprClientGrpcBuilder {
       throw new IllegalStateException("Protocol is required.");
     }
 
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    System.out.print("Protocal is " + protocol.name() + "\n");
+    
+
     switch (protocol) {
       case GRPC: return buildDaprClientGrpc();
       default: throw new IllegalStateException("Unsupported protocol: " + protocol.name());

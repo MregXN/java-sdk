@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>dapr-sdk</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <version>1.6.0</version>
   <name>dapr-sdk</name>
   <description>SDK for Dapr</description>

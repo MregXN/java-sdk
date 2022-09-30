@@ -41,7 +41,7 @@ public class Properties {
   /**
    * Dapr's default use of gRPC or HTTP.
    */
-  private static final DaprApiProtocol DEFAULT_API_PROTOCOL = DaprApiProtocol.GRPC;
+  private static final DaprApiProtocol DEFAULT_API_PROTOCOL = DaprApiProtocol.HTTP;
 
   /**
    * Dapr's default use of gRPC or HTTP for Dapr's method invocation APIs.
