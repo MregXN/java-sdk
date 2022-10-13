@@ -10,10 +10,10 @@
     <version>1.6.0</version>
   </parent>
 
-  <artifactId>dapr-sdk-springboot</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>dapr-sdk-springboot-parent</artifactId>
+  <packaging>pom</packaging>
   <version>1.6.0</version>
-  <name>dapr-sdk-springboot</name>
+  <name>dapr-sdk-springboot-parent</name>
   <description>SDK extension for Springboot</description>
 
   <properties>
@@ -21,79 +21,13 @@
     <springboot.version>2.3.5.RELEASE</springboot.version>
   </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${springboot.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>io.dapr</groupId>
-      <artifactId>dapr-sdk</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.dapr</groupId>
-      <artifactId>dapr-sdk-actors</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.gmazzo</groupId>
-      <artifactId>okhttp-mock</artifactId>
-      <version>1.4.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>5.2.10.RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>5.2.10.RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-configuration-processor</artifactId>
-      <scope>compile</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  <modules>
+    <module>sdk-springboot-common</module>
+    <module>sdk-springboot-http</module>
+    <module>sdk-springboot-grpc</module>
+    <module>sdk-springboot</module>
+  </modules>
 
   <build>
     <plugins>

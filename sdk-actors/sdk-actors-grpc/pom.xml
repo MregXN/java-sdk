@@ -1,0 +1,43 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.dapr</groupId>
+    <artifactId>dapr-sdk-actors-parent</artifactId>
+    <version>1.6.0</version>
+  </parent>
+
+  <artifactId>dapr-sdk-actors-grpc</artifactId>
+  <packaging>jar</packaging>
+  <version>1.6.0</version>
+  <name>dapr-sdk-actors-grpc</name>
+  <description>Grpc Part of SDK for Actors on Dapr</description>
+
+  <properties>
+    <grpc.version>1.42.1</grpc.version>
+  </properties>
+
+
+  <dependencies>
+      <dependency>
+        <groupId>io.dapr</groupId>
+        <artifactId>dapr-sdk-actors-common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dapr</groupId>
+        <artifactId>dapr-sdk-grpc</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.grpc</groupId>
+        <artifactId>grpc-testing</artifactId>
+        <version>${grpc.version}</version>
+        <scope>test</scope>
+      </dependency>
+  </dependencies>
+
+</project>

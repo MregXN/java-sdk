@@ -1,0 +1,50 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.dapr</groupId>
+    <artifactId>dapr-sdk-parent</artifactId>
+    <version>1.6.0</version>
+  </parent>
+
+  <artifactId>dapr-sdk-springboot-http</artifactId>
+  <packaging>jar</packaging>
+  <version>1.6.0</version>
+  <name>dapr-sdk-springboot-http</name>
+  <description>Http Part of SDK extension for Springboot</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.dapr</groupId>
+      <artifactId>dapr-sdk-springboot-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.dapr</groupId>
+      <artifactId>dapr-sdk-http</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  <dependency>
+    <groupId>com.github.gmazzo</groupId>
+    <artifactId>okhttp-mock</artifactId>
+    <version>1.4.1</version>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>5.2.10.RELEASE</version>
+    <scope>compile</scope>
+  </dependency>
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
+
+
+</project>
