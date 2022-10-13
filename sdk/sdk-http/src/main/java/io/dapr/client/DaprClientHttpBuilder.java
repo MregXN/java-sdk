@@ -29,7 +29,8 @@ public class DaprClientHttpBuilder {
   private final DaprApiProtocol apiProtocol;
 
   /**
-   * Determine if this builder will use HTTP client for service method invocation APIs.
+   * Determine if this builder will use HTTP client for service method invocation
+   * APIs.
    */
   private final DaprApiProtocol methodInvocationApiProtocol;
 
@@ -51,10 +52,17 @@ public class DaprClientHttpBuilder {
   /**
    * Creates a constructor for DaprClient.
    *
-   * {@link DefaultObjectSerializer} is used for object and state serializers by defaul but is not recommended
+   * {@link DefaultObjectSerializer} is used for object and state serializers by
+   * defaul but is not recommended
    * for production scenarios.
    */
   public DaprClientHttpBuilder() {
+
+    // switch procotol to HTTP
+    System.getProperties().setProperty(Properties.API_PROTOCOL.getName(), DaprApiProtocol.HTTP.name());
+    System.getProperties().setProperty(Properties.API_METHOD_INVOCATION_PROTOCOL.getName(),
+        DaprApiProtocol.HTTP.name());
+
     this.objectSerializer = new DefaultObjectSerializer();
     this.stateSerializer = new DefaultObjectSerializer();
     this.apiProtocol = Properties.API_PROTOCOL.get();
@@ -64,9 +72,11 @@ public class DaprClientHttpBuilder {
 
   /**
    * Sets the serializer for objects to be sent and received from Dapr.
-   * See {@link DefaultObjectSerializer} as possible serializer for non-production scenarios.
+   * See {@link DefaultObjectSerializer} as possible serializer for non-production
+   * scenarios.
    *
-   * @param objectSerializer Serializer for objects to be sent and received from Dapr.
+   * @param objectSerializer Serializer for objects to be sent and received from
+   *                         Dapr.
    * @return This instance.
    */
   public DaprClientHttpBuilder withObjectSerializer(DaprObjectSerializer objectSerializer) {
@@ -84,7 +94,8 @@ public class DaprClientHttpBuilder {
 
   /**
    * Sets the serializer for objects to be persisted.
-   * See {@link DefaultObjectSerializer} as possible serializer for non-production scenarios.
+   * See {@link DefaultObjectSerializer} as possible serializer for non-production
+   * scenarios.
    *
    * @param stateSerializer Serializer for objects to be persisted.
    * @return This instance.
@@ -127,25 +138,19 @@ public class DaprClientHttpBuilder {
    *
    * @param protocol Dapr API's protocol.
    * @return the GRPC Client.
-   * @throws java.lang.IllegalStateException if either host is missing or if port is missing or a negative number.
+   * @throws java.lang.IllegalStateException if either host is missing or if port
+   *                                         is missing or a negative number.
    */
   private DaprClient buildDaprClient(DaprApiProtocol protocol) {
     if (protocol == null) {
       throw new IllegalStateException("Protocol is required.");
     }
 
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-
     switch (protocol) {
-      case HTTP: return buildDaprClientHttp();
-      default: throw new IllegalStateException("Unsupported protocol: " + protocol.name());
+      case HTTP:
+        return buildDaprClientHttp();
+      default:
+        throw new IllegalStateException("Unsupported protocol: " + protocol.name());
     }
   }
 

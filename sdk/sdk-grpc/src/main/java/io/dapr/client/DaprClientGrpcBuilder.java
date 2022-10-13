@@ -57,6 +57,12 @@ public class DaprClientGrpcBuilder {
    * for production scenarios.
    */
   public DaprClientGrpcBuilder() {
+
+    // switch procotol to GRPC
+    System.getProperties().setProperty(Properties.API_PROTOCOL.getName(), DaprApiProtocol.GRPC.name());
+    System.getProperties().setProperty(Properties.API_METHOD_INVOCATION_PROTOCOL.getName(),
+        DaprApiProtocol.GRPC.name());
+
     this.objectSerializer = new DefaultObjectSerializer();
     this.stateSerializer = new DefaultObjectSerializer();
     this.apiProtocol = Properties.API_PROTOCOL.get();
@@ -139,19 +145,11 @@ public class DaprClientGrpcBuilder {
       throw new IllegalStateException("Protocol is required.");
     }
 
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    System.out.print("Protocal is " + protocol.name() + "\n");
-    
-
     switch (protocol) {
-      case GRPC: return buildDaprClientGrpc();
-      default: throw new IllegalStateException("Unsupported protocol: " + protocol.name());
+      case GRPC:
+        return buildDaprClientGrpc();
+      default:
+        throw new IllegalStateException("Unsupported protocol: " + protocol.name());
     }
 
   }
