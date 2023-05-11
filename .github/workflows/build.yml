@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-*
+      - example*
     tags:
       - v*
 
