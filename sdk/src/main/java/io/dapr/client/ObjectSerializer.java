@@ -24,6 +24,7 @@ import io.dapr.utils.TypeRef;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.nio.charset.Charset;
 
 /**
  * Serializes and deserializes an internal object.
@@ -70,7 +71,7 @@ public class ObjectSerializer {
     }
 
     if (state instanceof String) {
-      return ((String) state).getBytes();
+      return ((String) state).getBytes(Charset.forName("UTF-8"));
     }
 
     // Not string, not primitive, so it is a complex type: we use JSON for that.
