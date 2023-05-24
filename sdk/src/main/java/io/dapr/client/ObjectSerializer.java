@@ -70,9 +70,9 @@ public class ObjectSerializer {
       return ((MessageLite) state).toByteArray();
     }
 
-    if (state instanceof String) {
-      return ((String) state).getBytes(Charset.forName("UTF-8"));
-    }
+    // if (state instanceof String) {
+    //   return ((String) state).getBytes(Charset.forName("UTF-8"));
+    // }
 
 
     // Not string, not primitive, so it is a complex type: we use JSON for that.
