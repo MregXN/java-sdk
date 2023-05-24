@@ -69,7 +69,7 @@ public class ObjectSerializer {
       return ((MessageLite) state).toByteArray();
     }
 
-    if(state instanceof String) {
+    if (state instanceof String) {
       return ((String) state).getBytes();
     }
 
