@@ -70,6 +70,7 @@ public class ObjectSerializer {
       return ((MessageLite) state).toByteArray();
     }
 
+    // String is serialized directly as "UTF-8".
     if (state instanceof String) {
       return ((String) state).getBytes(Charset.forName("UTF-8"));
     }
