@@ -70,7 +70,7 @@ public class ObjectSerializer {
     }
 
     if(state instanceof String) {
-      return ((String)state).getBytes();
+      return ((String) state).getBytes();
     }
 
     // Not string, not primitive, so it is a complex type: we use JSON for that.
