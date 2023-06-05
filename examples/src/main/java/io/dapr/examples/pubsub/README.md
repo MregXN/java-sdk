@@ -677,15 +677,15 @@ Messages will be subscribed by the gRPC Subscriber and will print the output as 
 If you run a bulk publisher using following command
 
 <!-- STEP
-name: Run Bulk Publisher
-match_order: sequential
+name: Run Publisher on bulk topic
 expected_stdout_lines:
-  - '== APP == Published the set of messages in a single call to Dapr'
+  - '== APP == Published message: This is message #0'
+  - '== APP == Published message: This is message #1'
 background: true
-sleep: 20
 -->
+
 ```bash
-dapr run --components-path ./components/pubsub --app-id bulk-publisher -- java -jar target/dapr-java-sdk-examples-exec.jar io.dapr.examples.pubsub.BulkPublisher
+dapr run --components-path ./components/pubsub --app-id publisher -- java -jar target/dapr-java-sdk-examples-exec.jar io.dapr.examples.pubsub.Publisher testingtopicbulk
 ```
 
 <!-- END_STEP -->
