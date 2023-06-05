@@ -822,11 +822,16 @@ For more details on Dapr Spring Boot integration, please refer to [Dapr Spring B
 <!-- STEP
 name: Cleanup
 -->
+Use the following command to stop your running http subscriber or gRPC subscriber.
+```bash
+dapr stop --app-id subscriber
+```
+<!-- END_STEP -->
+After completing publish , the application will automatically exit. However, you can still use the following command to stop your running publisher.
 
 ```bash
 dapr stop --app-id publisher
 dapr stop --app-id bulk-publisher
-dapr stop --app-id subscriber
 ```
 
-<!-- END_STEP -->
+
