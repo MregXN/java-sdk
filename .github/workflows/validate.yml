@@ -17,6 +17,7 @@ on:
     branches:
       - master
       - release-*
+      - rewrite-grpc-si-test
     tags:
       - v*
 
