@@ -84,13 +84,13 @@ public class ActorTimerRecoveryIT extends BaseIT {
     runs.left.stop();
 
     // Pause a bit to let placements settle.
-    logger.info("Pausing 12 seconds to let placements settle.");
-    Thread.sleep(Duration.ofSeconds(12).toMillis());
+    logger.info("Pausing 10 seconds to let placements settle.");
+    Thread.sleep(Duration.ofSeconds(10).toMillis());
 
     runs.left.start();
 
-    logger.debug("Pausing 10 seconds to allow timer to fire");
-    Thread.sleep(10000);
+    logger.debug("Pausing 12 seconds to allow timer to fire");
+    Thread.sleep(12000);
     final List<MethodEntryTracker> newLogs = new ArrayList<>();
     callWithRetry(() -> {
       newLogs.clear();
