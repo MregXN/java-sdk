@@ -67,6 +67,8 @@ public class MyActorTestUtils {
    */
   static void validateMethodCalls(List<MethodEntryTracker> logs, String methodName, int minimum) {
     int callsCount = countMethodCalls(logs, methodName);
+    System.out.printf(
+            "Method %s was called %d times, which is at least %d times.\n", methodName, callsCount, minimum);
     assertTrue(callsCount >= minimum);
   }
 

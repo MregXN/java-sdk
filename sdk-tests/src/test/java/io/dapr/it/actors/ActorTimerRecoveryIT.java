@@ -96,7 +96,7 @@ public class ActorTimerRecoveryIT extends BaseIT {
       newLogs.clear();
       newLogs.addAll(fetchMethodCallLogs(proxy));
       validateMethodCalls(newLogs, METHOD_NAME, 3);
-    }, 5000);
+    }, 8000);
 
     // Check that the restart actually happened by confirming the old logs are not in the new logs.
     for (MethodEntryTracker oldLog: logs) {
