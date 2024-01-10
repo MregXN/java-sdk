@@ -217,6 +217,9 @@
               <goal>verify</goal>
             </goals>
             <configuration>
+              <includes>  
+                <include>io.dapr.it.actors.ActorTimerRecoveryIT</include> <!-- 指定要运行的测试类 -->  
+            </includes>
               <!--suppress UnresolvedMavenProperty -->
               <skip>${skipITs}</skip>
             </configuration>
