@@ -80,6 +80,11 @@ public class ActorTimerRecoveryIT extends BaseIT {
       validateMessageContent(logs, METHOD_NAME, "ping!");
     }, 5000);
 
+    // Pause a bit before stop.
+    System.out.println("Pause a bit before stop.");
+    Thread.sleep(Duration.ofSeconds(20).toMillis());
+
+
     // Restarts app only.
     runs.left.stop();
 
